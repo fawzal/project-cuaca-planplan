@@ -3,7 +3,7 @@
 
 import requests
 
-API_KEY = "375e722d3184ce77b16ae59068ef9480"
+API_KEY = "Kosong"
 BASE_URL_CURRENT = "http://api.openweathermap.org/data/2.5/weather?"
 BASE_URL_FORECAST = "http://api.openweathermap.org/data/2.5/forecast?"
 
