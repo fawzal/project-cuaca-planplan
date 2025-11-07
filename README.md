@@ -91,3 +91,156 @@ project_cuaca_uas/
 │   ├── kabut.png
 │   └── snow.png
 └── favorites.json          # User favorites data (auto-generated)
+
+
+🚀 Cara Instalasi & Menjalankan
+
+Prerequisites
+
+Pastikan sudah terinstall:
+
+Python 3.8 atau lebih tinggi
+
+pip (Python package manager)
+
+Langkah Instalasi
+
+Install Dependencies
+
+pip install -r requirements.txt
+
+
+Setup API Keys
+Buat file .env di root folder dan isi dengan:
+
+OPENWEATHER_API_KEY=375e722d3184ce7b16ae59068ef9480
+GEMINI_API_KEY=your_gemini_api_key_here
+
+
+Untuk mendapatkan Gemini API Key:
+
+Kunjungi: https://aistudio.google.com/app/apikey
+
+Login dengan Google Account
+
+Create API key dan copy
+
+Buat Folder Frontend
+
+mkdir frontend
+
+
+Lalu copy file index.html ke dalam folder frontend/
+
+Jalankan Aplikasi
+
+python app.py
+
+
+Aplikasi akan berjalan di: http://localhost:5000
+
+📖 Cara Penggunaan
+
+Mencari Cuaca Manual
+
+Ketik nama kota di search box.
+
+Klik tombol "Cari".
+
+Lihat informasi cuaca dan ramalan 5 hari.
+
+Mencari Cuaca via Dropdown Wilayah
+
+Pilih Provinsi dari dropdown pertama.
+
+Pilih Kabupaten/Kota dari dropdown kedua.
+
+(Opsional) Pilih Kecamatan dan Desa.
+
+Klik tombol "🌤️ Cek Cuaca Wilayah Ini".
+
+Menggunakan AI Chatbot
+
+Ketik pertanyaan di chatbox sidebar kanan.
+
+Contoh: "Apa itu hujan tropis?" atau "Tips menghadapi musim hujan".
+
+AI akan menjawab pertanyaan seputar cuaca.
+
+Catatan: Chatbot hanya menjawab topik tentang cuaca dan iklim.
+
+🔌 API Endpoints
+
+Weather API
+
+Get Current Weather: GET /api/weather/current?city=Jakarta
+
+Get 5-Day Forecast: GET /api/weather/forecast?city=Jakarta
+
+Wilayah API
+
+Get Provinces: GET /api/wilayah/provinces
+
+Get Regencies: GET /api/wilayah/regencies/{province_code}
+
+Get Districts: GET /api/wilayah/districts/{regency_code}
+
+Get Villages: GET /api/wilayah/villages/{district_code}
+
+Chatbot API
+
+Send Message: POST /api/chat
+
+{
+  "message": "Apa itu hujan tropis?"
+}
+
+
+Favorites API
+
+Get Favorites: GET /api/favorites
+
+Add Favorite: POST /api/favorites
+
+{
+  "city": "Jakarta"
+}
+
+
+Delete Favorite: DELETE /api/favorites/{city_name}
+
+🐛 Troubleshooting
+
+Error: Module Not Found
+
+pip install -r requirements.txt --upgrade
+
+
+Error: API Key Invalid
+Pastikan file .env ada dan format benar:
+
+GEMINI_API_KEY=AIzaSy...
+OPENWEATHER_API_KEY=375e7...
+
+
+Error: Port 5000 Already in Use
+Edit app.py baris terakhir, ganti port:
+
+app.run(debug=True, port=5001, host='0.0.0.0')
+
+
+Chatbot Tidak Berfungsi
+
+Cek apakah google-generativeai terinstall.
+
+Verifikasi Gemini API key valid dan sudah diset di .env.
+
+Cek terminal untuk log error.
+
+Dropdown Wilayah Tidak Muncul
+
+Pastikan koneksi internet stabil.
+
+Cek apakah API Wilayah.id sedang down.
+
+Buka browser console (F12) untuk lihat error.
