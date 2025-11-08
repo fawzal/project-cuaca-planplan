@@ -223,3 +223,74 @@ header p {
     transform: translateY(-2px);
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
 }
+
+/* Wilayah Section */
+.wilayah-section {
+    margin-top: 24px;
+}
+
+.wilayah-section h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 20px;
+}
+
+.dropdown-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+select {
+    padding: 14px 16px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    background: white;
+    color: #1a202c;
+    font-size: 0.9rem;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+select:hover {
+    border-color: #cbd5e0;
+}
+
+select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #f7fafc;
+}
+
+select option {
+    padding: 10px;
+}
+
+.btn-cek-cuaca {
+    width: 100%;
+    margin-top: 16px;
+    background: #48bb78;
+}
+
+.btn-cek-cuaca:hover {
+    background: #38a169;
+    box-shadow: 0 4px 12px rgba(72, 187, 120, 0.3);
+}
+
+#wilayahInfo {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 0.875rem;
+    color: #718096;
+    padding: 12px;
+    background: #f7fafc;
+    border-radius: 8px;
+}
