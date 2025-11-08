@@ -244,3 +244,101 @@ Pastikan koneksi internet stabil.
 Cek apakah API Wilayah.id sedang down.
 
 Buka browser console (F12) untuk lihat error.
+
+📊 Fitur yang Diimplementasikan
+
+$$x$$
+
+ Pencarian Cuaca Manual: Cari berdasarkan nama kota
+
+$$x$$
+
+ Ramalan 5 Hari: Prediksi cuaca 5 hari ke depan
+
+$$x$$
+
+ Dropdown Wilayah 4 Tingkat: Provinsi → Kab → Kec → Desa
+
+$$x$$
+
+ Integrasi Cuaca & Wilayah: Auto-search dari dropdown
+
+$$x$$
+
+ AI Chatbot (Gemini): Khusus topik cuaca
+
+$$x$$
+
+ Favorites Management: Simpan & Hapus kota favorit
+
+$$x$$
+
+ Responsive Design: Mobile & desktop friendly
+
+$$x$$
+
+ Glassmorphism UI: Modern design
+
+📝 Catatan Pengembangan
+
+Tantangan yang Dihadapi
+
+Integrasi Multi-API: Menggabungkan 3 API berbeda (OpenWeatherMap, Wilayah.id, Gemini AI)
+
+Dropdown Cascade: Membuat dropdown berjenjang yang responsif
+
+Mapping Wilayah: Mencocokkan nama kabupaten dengan format OpenWeatherMap
+
+AI Chatbot Constraint: Membatasi chatbot hanya menjawab topik cuaca
+
+Solusi yang Diterapkan
+
+Membuat service layer (api_service.py) untuk centralized API handling
+
+Implementasi AJAX dengan async/await untuk smooth UX
+
+String manipulation untuk cleaning nama wilayah
+
+System instruction di Gemini AI untuk topic restriction
+
+📚 Referensi & Sumber
+
+Flask Documentation
+
+OpenWeatherMap API
+
+Wilayah.id API
+
+Google Gemini AI
+
+MDN Web Docs
+
+CSS Glassmorphism
+
+🙏 Acknowledgments
+
+Terima kasih kepada:
+
+Bapak Triyono, S.Kom  - Bimbingan dan arahan project
+
+OpenWeatherMap - Free weather API
+
+Wilayah.id - API data wilayah Indonesia
+
+Google - Gemini AI API
+
+Teman-teman kelompok - Kerjasama dan kolaborasi
+
+📞 Kontak
+
+GitHub: https://github.com/fawzal/project-cuaca-planplan
+
+<div align="center">
+Dibuat dengan ❤️ untuk Tugas UAS Pemrograman Web
+
+
+
+
+
+© 2025 PlanPlan - All Rights Reserved
+</div>
