@@ -111,3 +111,47 @@ header p {
     cursor: not-allowed;
     transform: none;
 }
+
+/* Weather Display */
+.weather-display {
+    text-align: center;
+    padding: 48px 0;
+}
+
+.weather-icon {
+    margin-bottom: 24px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.weather-icon img {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.city-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 12px;
+}
+
+.temperature {
+    font-size: 4rem;
+    font-weight: 300;
+    color: #667eea;
+    margin: 16px 0;
+    letter-spacing: -2px;
+}
+
+.description {
+    font-size: 1.125rem;
+    color: #718096;
+    text-transform: capitalize;
+    font-weight: 500;
+}
