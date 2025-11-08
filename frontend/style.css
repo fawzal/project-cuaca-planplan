@@ -409,3 +409,34 @@ select option {
     border-color: #667eea;
     box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
 }
+
+/* Loading & Error States */
+.loading {
+    text-align: center;
+    padding: 48px;
+    color: #718096;
+    font-size: 1rem;
+}
+
+.error {
+    background: #fed7d7;
+    color: #c53030;
+    padding: 16px 20px;
+    border-radius: 12px;
+    margin-top: 16px;
+    border: 1px solid #fc8181;
+    font-size: 0.9rem;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 48px;
+    color: #a0aec0;
+}
+
+.empty-state .icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+    opacity: 0.5;
+}
