@@ -562,3 +562,31 @@ select option {
 .btn-delete-fav:hover {
     background: #fed7d7; /* Latar belakang merah muda saat hover */
 }
+
+/* === Gaya untuk Tombol Favorit (Material Symbols) === */
+.city-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-favorite {
+    background: #edf2f7;
+    border: 1px solid #e2e8f0;
+    border-radius: 50%; /* Bulat sempurna */
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    transition: all 0.2s;
+    
+    /* Baru: Center icon di dalam tombol */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-favorite:hover {
+    background: #e2e8f0;
+    transform: scale(1.1);
+}
