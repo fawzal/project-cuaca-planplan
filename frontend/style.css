@@ -294,3 +294,118 @@ select option {
     background: #f7fafc;
     border-radius: 8px;
 }
+
+/* Chatbot Section */
+.chatbot-section {
+    display: flex;
+    flex-direction: column;
+    max-height: 700px;
+}
+
+.chatbot-header {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.chatbot-header h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 4px;
+}
+
+.chatbot-header p {
+    font-size: 0.875rem;
+    color: #718096;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+    background: #f7fafc;
+    border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+}
+
+.message {
+    padding: 14px 18px;
+    border-radius: 12px;
+    max-width: 85%;
+    word-wrap: break-word;
+    animation: slideIn 0.3s ease;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message.user {
+    background: #667eea;
+    color: white;
+    align-self: flex-end;
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+}
+
+.message.bot {
+    background: #f7fafc;
+    color: #1a202c;
+    align-self: flex-start;
+    border: 1px solid #e2e8f0;
+    border-bottom-left-radius: 4px;
+}
+
+.chat-input {
+    display: flex;
+    gap: 12px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 14px 18px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    background: white;
+    color: #1a202c;
+    outline: none;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.chat-input input::placeholder {
+    color: #a0aec0;
+}
+
+.chat-input input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
