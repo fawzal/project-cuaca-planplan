@@ -489,3 +489,20 @@ select option {
         padding: 24px;
     }
 }
+
+/* === Gaya untuk List Favorit === */
+.favorites-section h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 20px;
+}
+
+#favoritesList {
+    list-style: none;
+    max-height: 250px; /* Batasi tinggi, tambahkan scroll jika perlu */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Jarak antar item */
+}
