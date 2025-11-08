@@ -506,3 +506,59 @@ select option {
     flex-direction: column;
     gap: 8px; /* Jarak antar item */
 }
+
+/* Scrollbar styling (opsional tapi bagus) */
+#favoritesList::-webkit-scrollbar {
+    width: 6px;
+}
+#favoritesList::-webkit-scrollbar-track {
+    background: #f7fafc;
+    border-radius: 10px;
+}
+#favoritesList::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 10px;
+}
+
+.favorite-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+    background: #f7fafc;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+.favorite-item span {
+    font-weight: 600;
+    color: #4a5568;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.favorite-item span:hover {
+    color: #667eea; /* Warna ungu saat di-hover */
+}
+
+.empty-fav {
+    text-align: center;
+    color: #a0aec0;
+    padding: 20px;
+}
+
+.btn-delete-fav {
+    background: none;
+    border: none;
+    color: #e53e3e; /* Merah */
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.btn-delete-fav:hover {
+    background: #fed7d7; /* Latar belakang merah muda saat hover */
+}
