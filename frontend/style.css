@@ -590,3 +590,26 @@ select option {
     background: #e2e8f0;
     transform: scale(1.1);
 }
+
+/* Gaya untuk icon-nya (<span>) */
+.btn-favorite .material-symbols-outlined {
+    font-size: 28px; /* Sesuaikan ukuran icon */
+    color: #4a5568; /* Warna default (abu-abu) */
+    
+    /* Ini kuncinya: default = outline/tidak terisi */
+    font-variation-settings: 'FILL' 0; 
+    transition: all 0.2s;
+}
+
+/* Gaya untuk tombol SAAT AKTIF (.active) */
+.btn-favorite.active {
+    background: #fffbef; /* Kuning sangat muda */
+    border-color: #ffe6b8; 
+}
+
+/* Gaya untuk icon SAAT AKTIF */
+.btn-favorite.active .material-symbols-outlined {
+    /* Ini kuncinya: active = filled/terisi */
+    font-variation-settings: 'FILL' 1; 
+    color: #facc15; /* Warna kuning (gold) */
+}
