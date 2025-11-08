@@ -190,3 +190,36 @@ header p {
     font-weight: 700;
     color: #1a202c;
 }
+
+/* Forecast */
+.forecast-section {
+    margin-top: 32px;
+}
+
+.forecast-section h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 20px;
+}
+
+.forecast {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+.forecast-item {
+    background: #f7fafc;
+    padding: 20px 12px;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.2s;
+    border: 1px solid #e2e8f0;
+}
+
+.forecast-item:hover {
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
