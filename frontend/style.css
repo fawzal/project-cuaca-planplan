@@ -440,3 +440,52 @@ select option {
     margin-bottom: 16px;
     opacity: 0.5;
 }
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .chatbot-section {
+        max-height: 500px;
+    }
+
+    .weather-details {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .forecast {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .temperature {
+        font-size: 3rem;
+    }
+
+    .dropdown-container {
+        grid-template-columns: 1fr;
+    }
+
+    .weather-details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .forecast {
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    }
+
+    .card {
+        padding: 24px;
+    }
+}
