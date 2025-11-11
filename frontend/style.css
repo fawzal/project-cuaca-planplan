@@ -1,0 +1,615 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Inter', 'Segoe UI', system-ui, -apple-system, sans-serif;
+    background: #f5f7fa;
+    min-height: 100vh;
+    color: #1a202c;
+}
+
+/* Container */
+.container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 32px;
+}
+
+/* Header */
+header {
+    margin-bottom: 48px;
+}
+
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 8px;
+}
+
+header p {
+    font-size: 1rem;
+    color: #718096;
+    font-weight: 400;
+}
+
+/* Main Layout */
+.main-content {
+    display: grid;
+    grid-template-columns: 1fr 380px;
+    gap: 24px;
+}
+
+/* Card Base Style */
+.card {
+    background: white;
+    border-radius: 16px;
+    padding: 32px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    border: 1px solid #e2e8f0;
+}
+
+/* Search Section */
+.search-section {
+    margin-bottom: 24px;
+}
+
+.search-box {
+    display: flex;
+    gap: 12px;
+}
+
+.search-box input {
+    flex: 1;
+    padding: 14px 18px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    font-size: 0.95rem;
+    color: #1a202c;
+    background: white;
+    transition: all 0.2s;
+    outline: none;
+}
+
+.search-box input::placeholder {
+    color: #a0aec0;
+}
+
+.search-box input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+.btn {
+    padding: 14px 28px;
+    border: none;
+    border-radius: 12px;
+    background: #667eea;
+    color: white;
+    font-size: 0.95rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+    white-space: nowrap;
+}
+
+.btn:hover {
+    background: #5568d3;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+}
+
+.btn:active {
+    transform: translateY(0);
+}
+
+.btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+}
+
+/* Weather Display */
+.weather-display {
+    text-align: center;
+    padding: 48px 0;
+}
+
+.weather-icon {
+    margin-bottom: 24px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.weather-icon img {
+    width: 140px;
+    height: 140px;
+    object-fit: contain;
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+}
+
+.city-name {
+    font-size: 1.75rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 12px;
+}
+
+.temperature {
+    font-size: 4rem;
+    font-weight: 300;
+    color: #667eea;
+    margin: 16px 0;
+    letter-spacing: -2px;
+}
+
+.description {
+    font-size: 1.125rem;
+    color: #718096;
+    text-transform: capitalize;
+    font-weight: 500;
+}
+
+/* Weather Details Grid */
+.weather-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+    margin-top: 40px;
+}
+
+.detail-item {
+    background: #f7fafc;
+    padding: 20px;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.2s;
+    border: 1px solid #e2e8f0;
+}
+
+.detail-item:hover {
+    background: #edf2f7;
+    transform: translateY(-2px);
+}
+
+.detail-item .label {
+    font-size: 0.875rem;
+    color: #718096;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.detail-item .value {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #1a202c;
+}
+
+/* Forecast */
+.forecast-section {
+    margin-top: 32px;
+}
+
+.forecast-section h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 20px;
+}
+
+.forecast {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 12px;
+}
+
+.forecast-item {
+    background: #f7fafc;
+    padding: 20px 12px;
+    border-radius: 12px;
+    text-align: center;
+    transition: all 0.2s;
+    border: 1px solid #e2e8f0;
+}
+
+.forecast-item:hover {
+    background: white;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+}
+
+/* Wilayah Section */
+.wilayah-section {
+    margin-top: 24px;
+}
+
+.wilayah-section h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 20px;
+}
+
+.dropdown-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+select {
+    padding: 14px 16px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    background: white;
+    color: #1a202c;
+    font-size: 0.9rem;
+    outline: none;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-weight: 500;
+}
+
+select:hover {
+    border-color: #cbd5e0;
+}
+
+select:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+select:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: #f7fafc;
+}
+
+select option {
+    padding: 10px;
+}
+
+.btn-cek-cuaca {
+    width: 100%;
+    margin-top: 16px;
+    background: #48bb78;
+}
+
+.btn-cek-cuaca:hover {
+    background: #38a169;
+    box-shadow: 0 4px 12px rgba(72, 187, 120, 0.3);
+}
+
+#wilayahInfo {
+    margin-top: 16px;
+    text-align: center;
+    font-size: 0.875rem;
+    color: #718096;
+    padding: 12px;
+    background: #f7fafc;
+    border-radius: 8px;
+}
+
+/* Chatbot Section */
+.chatbot-section {
+    display: flex;
+    flex-direction: column;
+    max-height: 700px;
+}
+
+.chatbot-header {
+    margin-bottom: 24px;
+    padding-bottom: 24px;
+    border-bottom: 1px solid #e2e8f0;
+}
+
+.chatbot-header h2 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 4px;
+}
+
+.chatbot-header p {
+    font-size: 0.875rem;
+    color: #718096;
+}
+
+.chat-messages {
+    flex: 1;
+    overflow-y: auto;
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.chat-messages::-webkit-scrollbar {
+    width: 6px;
+}
+
+.chat-messages::-webkit-scrollbar-track {
+    background: #f7fafc;
+    border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 10px;
+}
+
+.chat-messages::-webkit-scrollbar-thumb:hover {
+    background: #a0aec0;
+}
+
+.message {
+    padding: 14px 18px;
+    border-radius: 12px;
+    max-width: 85%;
+    word-wrap: break-word;
+    animation: slideIn 0.3s ease;
+    font-size: 0.9rem;
+    line-height: 1.6;
+}
+
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.message.user {
+    background: #667eea;
+    color: white;
+    align-self: flex-end;
+    margin-left: auto;
+    border-bottom-right-radius: 4px;
+}
+
+.message.bot {
+    background: #f7fafc;
+    color: #1a202c;
+    align-self: flex-start;
+    border: 1px solid #e2e8f0;
+    border-bottom-left-radius: 4px;
+}
+
+.chat-input {
+    display: flex;
+    gap: 12px;
+}
+
+.chat-input input {
+    flex: 1;
+    padding: 14px 18px;
+    border: 1.5px solid #e2e8f0;
+    border-radius: 12px;
+    background: white;
+    color: #1a202c;
+    outline: none;
+    font-size: 0.9rem;
+    transition: all 0.2s;
+}
+
+.chat-input input::placeholder {
+    color: #a0aec0;
+}
+
+.chat-input input:focus {
+    border-color: #667eea;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+}
+
+/* Loading & Error States */
+.loading {
+    text-align: center;
+    padding: 48px;
+    color: #718096;
+    font-size: 1rem;
+}
+
+.error {
+    background: #fed7d7;
+    color: #c53030;
+    padding: 16px 20px;
+    border-radius: 12px;
+    margin-top: 16px;
+    border: 1px solid #fc8181;
+    font-size: 0.9rem;
+}
+
+/* Empty State */
+.empty-state {
+    text-align: center;
+    padding: 48px;
+    color: #a0aec0;
+}
+
+.empty-state .icon {
+    font-size: 3rem;
+    margin-bottom: 16px;
+    opacity: 0.5;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .main-content {
+        grid-template-columns: 1fr;
+    }
+
+    .chatbot-section {
+        max-height: 500px;
+    }
+
+    .weather-details {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .forecast {
+        grid-template-columns: repeat(5, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        padding: 20px;
+    }
+
+    header h1 {
+        font-size: 1.5rem;
+    }
+
+    .temperature {
+        font-size: 3rem;
+    }
+
+    .dropdown-container {
+        grid-template-columns: 1fr;
+    }
+
+    .weather-details {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .forecast {
+        grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+    }
+
+    .card {
+        padding: 24px;
+    }
+}
+
+/* === Gaya untuk List Favorit === */
+.favorites-section h3 {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: #1a202c;
+    margin-bottom: 20px;
+}
+
+#favoritesList {
+    list-style: none;
+    max-height: 250px; /* Batasi tinggi, tambahkan scroll jika perlu */
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 8px; /* Jarak antar item */
+}
+
+/* Scrollbar styling (opsional tapi bagus) */
+#favoritesList::-webkit-scrollbar {
+    width: 6px;
+}
+#favoritesList::-webkit-scrollbar-track {
+    background: #f7fafc;
+    border-radius: 10px;
+}
+#favoritesList::-webkit-scrollbar-thumb {
+    background: #cbd5e0;
+    border-radius: 10px;
+}
+
+.favorite-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 16px;
+    background: #f7fafc;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+}
+
+.favorite-item span {
+    font-weight: 600;
+    color: #4a5568;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.favorite-item span:hover {
+    color: #667eea; /* Warna ungu saat di-hover */
+}
+
+.empty-fav {
+    text-align: center;
+    color: #a0aec0;
+    padding: 20px;
+}
+
+.btn-delete-fav {
+    background: none;
+    border: none;
+    color: #e53e3e; /* Merah */
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 6px;
+    transition: background 0.2s;
+}
+
+.btn-delete-fav:hover {
+    background: #fed7d7; /* Latar belakang merah muda saat hover */
+}
+
+/* === Gaya untuk Tombol Favorit (Material Symbols) === */
+.city-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+}
+
+.btn-favorite {
+    background: #edf2f7;
+    border: 1px solid #e2e8f0;
+    border-radius: 50%; /* Bulat sempurna */
+    width: 44px;
+    height: 44px;
+    cursor: pointer;
+    transition: all 0.2s;
+    
+    /* Baru: Center icon di dalam tombol */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-favorite:hover {
+    background: #e2e8f0;
+    transform: scale(1.1);
+}
+
+/* Gaya untuk icon-nya (<span>) */
+.btn-favorite .material-symbols-outlined {
+    font-size: 28px; /* Sesuaikan ukuran icon */
+    color: #4a5568; /* Warna default (abu-abu) */
+    
+    /* Ini kuncinya: default = outline/tidak terisi */
+    font-variation-settings: 'FILL' 0; 
+    transition: all 0.2s;
+}
+
+/* Gaya untuk tombol SAAT AKTIF (.active) */
+.btn-favorite.active {
+    background: #fffbef; /* Kuning sangat muda */
+    border-color: #ffe6b8; 
+}
+
+/* Gaya untuk icon SAAT AKTIF */
+.btn-favorite.active .material-symbols-outlined {
+    /* Ini kuncinya: active = filled/terisi */
+    font-variation-settings: 'FILL' 1; 
+    color: #facc15; /* Warna kuning (gold) */
+}
