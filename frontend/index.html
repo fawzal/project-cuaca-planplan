@@ -13,3 +13,19 @@
             <h1>PlanPlan - Weather App Indonesia</h1>
             <p>Informasi cuaca real-time dengan AI assistant</p>
         </header>
+
+        <div class="main-content">
+            <div>
+                <div class="card search-section">
+                    <div class="search-box">
+                        <input type="text" id="cityInput" placeholder="Cari kota..." onkeypress="if(event.key === 'Enter') searchWeather()" />
+                        <button class="btn" onclick="searchWeather()">Cari</button>
+                    </div>
+                </div>
+
+                <div class="card favorites-section">
+                    <h3>⭐ Kota Favorit Tersimpan</h3>
+                    <ul id="favoritesList">
+                        <li class="empty-fav">Belum ada kota favorit.</li>
+                    </ul>
+                </div>
