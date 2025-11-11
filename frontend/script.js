@@ -34,7 +34,7 @@ async function searchWeather() {
     showLoading();
 
     try {
-        const response = await fetch(${API_BASE}/api/weather/current?city=${encodeURIComponent(city)});
+        const response = await fetch(`${API_BASE}/api/weather/current?city=${encodeURIComponent(city)}`);
         const data = await response.json();
 
         if (data.error) {
@@ -59,7 +59,7 @@ async function cekCuacaDariWilayah() {
         return;
     }
 
-    const selectedOption = kabSelect.options[kabupatenSelect.selectedIndex];
+    const selectedOption = kabSelect.options[kabSelect.selectedIndex];
     let cityName = selectedOption.textContent;
 
     cityName = cityName
@@ -78,7 +78,7 @@ async function cekCuacaDariWilayah() {
     showLoading();
 
     try {
-        const response = await fetch(${API_BASE}/api/weather/current?city=${encodeURIComponent(cityName)});
+        const response = await fetch(`${API_BASE}/api/weather/current?city=${encodeURIComponent(cityName)}`);
         const data = await response.json();
 
         if (data.error) {
@@ -124,7 +124,7 @@ function displayWeather(data) {
 
 async function loadForecast(city) {
     try {
-        const response = await fetch(${API_BASE}/api/weather/forecast?city=${encodeURIComponent(city)});
+        const response = await fetch(`${API_BASE}/api/weather/forecast?city=${encodeURIComponent(city)}`);
         const data = await response.json(); 
 
         if (!data.error && data.length > 0) {
@@ -169,7 +169,7 @@ async function sendMessage() {
     input.value = '';
 
     try {
-        const response = await fetch(${API_BASE}/api/chat, {
+        const response = await fetch(`${API_BASE}/api/chat`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ message, timestamp: new Date().toISOString() })
@@ -186,7 +186,7 @@ async function sendMessage() {
 function addMessage(text, type) {
     const chatMessages = document.getElementById('chatMessages');
     const messageDiv = document.createElement('div');
-    messageDiv.className = message ${type};
+    messageDiv.className = `message ${type}`;
     messageDiv.textContent = text;
     chatMessages.appendChild(messageDiv);
     chatMessages.scrollTop = chatMessages.scrollHeight;
@@ -196,7 +196,7 @@ function addMessage(text, type) {
 
 async function loadProvinsi() {
     try {
-        const response = await fetch(${API_BASE}/api/wilayah/provinces);
+        const response = await fetch(`${API_BASE}/api/wilayah/provinces`);
         const data = await response.json();
 
         const select = document.getElementById('provinsiSelect');
@@ -232,7 +232,7 @@ async function loadKabupaten() {
     if (!provCode) return;
 
     try {
-        const response = await fetch(${API_BASE}/api/wilayah/regencies/${provCode});
+        const response = await fetch(`${API_BASE}/api/wilayah/regencies/${provCode}`);
         const data = await response.json();
 
         data.data.forEach(kab => {
@@ -268,7 +268,7 @@ async function loadKecamatan() {
     btnCekCuaca.disabled = false;
 
     try {
-        const response = await fetch(${API_BASE}/api/wilayah/districts/${kabCode});
+        const response = await fetch(`${API_BASE}/api/wilayah/districts/${kabCode}`);
         const data = await response.json();
 
         data.data.forEach(kec => {
@@ -294,7 +294,7 @@ async function loadDesa() {
     if (!kecCode) return;
 
     try {
-        const response = await fetch(${API_BASE}/api/wilayah/villages/${kecCode});
+        const response = await fetch(`${API_BASE}/api/wilayah/villages/${kecCode}`);
         const data = await response.json();
 
         data.data.forEach(desa => {
@@ -321,7 +321,7 @@ async function loadDesa() {
  */
 async function loadFavorites() {
     try {
-        const response = await fetch(${API_BASE}/api/favorites);
+        const response = await fetch(`${API_BASE}/api/favorites`);
         currentFavorites = await response.json();
         renderFavoritesList();
     } catch (error) {
@@ -396,7 +396,7 @@ async function toggleFavorite() {
  */
 async function addFavorite(city) {
     try {
-        await fetch(${API_BASE}/api/favorites, {
+        await fetch(`${API_BASE}/api/favorites`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ city: city })
@@ -413,7 +413,7 @@ async function addFavorite(city) {
  */
 async function removeFavorite(city) {
     try {
-        await fetch(${API_BASE}/api/favorites/${city}, {
+        await fetch(`${API_BASE}/api/favorites/${city}`, {
             method: 'DELETE'
         });
         await loadFavorites(); // Muat ulang daftar favorit
