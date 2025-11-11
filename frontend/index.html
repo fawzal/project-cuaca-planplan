@@ -29,3 +29,42 @@
                         <li class="empty-fav">Belum ada kota favorit.</li>
                     </ul>
                 </div>
+
+                <div class="card">
+                    <div id="weatherDisplay" class="weather-display">
+                        <div class="empty-state">
+                            <div class="icon">🌍</div>
+                            <p>Cari kota untuk melihat cuaca</p>
+                        </div>
+                    </div>
+
+                    <div id="forecastSection" style="display: none;" class="forecast-section">
+                        <h3>Ramalan 5 Hari</h3>
+                        <div id="forecastDisplay" class="forecast"></div>
+                    </div>
+                </div>
+
+                <div class="card wilayah-section">
+                    <h3>📍 Pilih Wilayah Indonesia</h3>
+                    <div class="dropdown-container">
+                        <select id="provinsiSelect" onchange="loadKabupaten()">
+                            <option value="">Pilih Provinsi...</option>
+                        </select>
+                        <select id="kabupatenSelect" onchange="loadKecamatan()" disabled>
+                            <option value="">Pilih Kabupaten/Kota...</option>
+                        </select>
+                        <select id="kecamatanSelect" onchange="loadDesa()" disabled>
+                            <option value="">Pilih Kecamatan...</option>
+                        </select>
+                        <select id="desaSelect" disabled>
+                            <option value="">Pilih Desa/Kelurahan...</option>
+                        </select>
+                    </div>
+                    <button class="btn btn-cek-cuaca" onclick="cekCuacaDariWilayah()" id="btnCekCuacaWilayah" disabled>
+                        🌤️ Cek Cuaca Wilayah Ini
+                    </button>
+                    <div id="wilayahInfo">
+                        💡 Pilih minimal Kabupaten/Kota untuk cek cuaca
+                    </div>
+                </div>
+            </div>
