@@ -68,3 +68,25 @@
                     </div>
                 </div>
             </div>
+
+            <div class="card chatbot-section">
+                <div class="chatbot-header">
+                    <h2>🤖 Weather AI Assistant</h2>
+                    <p>Tanya saya tentang cuaca</p>
+                </div>
+                <div class="chat-messages" id="chatMessages">
+                    <div class="message bot">
+                        Halo! 👋 Saya asisten cuaca Anda. Tanyakan apa saja tentang cuaca, fenomena alam, atau tips seputar cuaca!
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <input type="text" id="chatInput" placeholder="Ketik pertanyaan..." onkeypress="if(event.key === 'Enter') sendMessage()" />
+                    <button class="btn" onclick="sendMessage()">Kirim</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js" defer></script>
+</body>
+</html>
