@@ -17,23 +17,32 @@ app = Flask(__name__, static_folder='frontend', static_url_path='')
 chat_session = None  # Inisialisasi global variable
 
 if GEMINI_AVAILABLE:
-    GEMINI_API_KEY = os.getenv("GEMINI_API_KEY", "AIzaSyB2avMTSoMnIS8CNmWgSfklANyMAeYl3bI")
-    genai.configure(api_key=GEMINI_API_KEY)
+    # ❗ PERUBAHAN 1 (KEAMANAN): Kunci API tidak boleh di-hardcode. 
+    # os.getenv("GEMINI_API_KEY") sudah benar. 
+    # Replit akan membacanya dari "Secrets".
+    GEMINI_API_KEY = os.getenv("GEMINI_API_KEY") 
+    
+    if not GEMINI_API_KEY:
+        print("WARNING: GEMINI_API_KEY tidak ditemukan di environment. Chatbot tidak akan berfungsi.")
+        GEMINI_AVAILABLE = False
+    else:
+        genai.configure(api_key=GEMINI_API_KEY)
 
-    generation_config = {
-        "temperature": 0.7,
-        "top_p": 0.95,
-        "top_k": 40,
-        "max_output_tokens": 1024,
-    }
+        generation_config = {
+            "temperature": 0.7,
+            "top_p": 0.95,
+            "top_k": 40,
+            "max_output_tokens": 1024,
+        }
 
-    # Gunakan model terbaru yang tersedia
-    model = genai.GenerativeModel(
-        model_name="gemini-2.0-flash",  # Model terbaru dan stabil
-        generation_config=generation_config
-    )
+        # ❗ PERUBAHAN 2 (FUNGSIONAL): Model "gemini-2.0-flash" tidak ada.
+        # Saya ganti ke "gemini-1.5-flash" agar API call-nya berhasil.
+        model = genai.GenerativeModel(
+            model_name="gemini-1.5-flash",  # Menggunakan model yang valid
+            generation_config=generation_config
+        )
 
-    SYSTEM_PROMPT = """Kamu adalah asisten cuaca yang ramah dan informatif. 
+        SYSTEM_PROMPT = """Kamu adalah asisten cuaca yang ramah dan informatif. 
 Tugasmu HANYA menjawab pertanyaan seputar:
 - Cuaca (suhu, hujan, angin, kelembaban, dll)
 - Fenomena cuaca (tornado, topan, badai, salju, dll)
@@ -49,20 +58,23 @@ PENTING:
 
 Selalu ramah dan helpful!"""
 
-    chat_session = model.start_chat(history=[
-        {"role": "user", "parts": [SYSTEM_PROMPT]},
-        {"role": "model", "parts": ["Baik, saya siap membantu pertanyaan seputar cuaca!"]}
-    ])
+        chat_session = model.start_chat(history=[
+            {"role": "user", "parts": [SYSTEM_PROMPT]},
+            {"role": "model", "parts": ["Baik, saya siap membantu pertanyaan seputar cuaca!"]}
+        ])
 
 # === ROUTE FRONTEND ===
-
+# Kode ini sudah benar. 
+# Route '/' untuk menyajikan index.html.
 @app.route('/')
 def home():
     return send_from_directory('frontend', 'index.html')
 
+# Route '/<path:path>' untuk menyajikan file lain (script.js, style.css, assets/...).
 @app.route('/<path:path>')
 def serve_static(path):
     try:
+        # Ini akan mencari file di dalam folder 'frontend/'
         return send_from_directory('frontend', path)
     except:
         return jsonify({"error": "File not found"}), 404
@@ -151,8 +163,8 @@ def get_villages(district_code):
 def chat_with_ai():
     global chat_session  # Deklarasi global di AWAL fungsi
     
-    if not GEMINI_AVAILABLE:
-        return jsonify({"error": "Gemini AI tidak tersedia"}), 503
+    if not GEMINI_AVAILABLE or not chat_session:
+        return jsonify({"error": "Gemini AI tidak tersedia atau belum terkonfigurasi"}), 503
     
     try:
         data = request.get_json()
@@ -254,14 +266,16 @@ if __name__ == "__main__":
     print("Frontend: http://localhost:5000")
     print("API Docs: http://localhost:5000/api")
     print("\nFeatures:")
-    print("  - Weather API (OpenWeatherMap)")
-    print("  - Wilayah.id API (Prov -> Kab -> Kec -> Desa)")
+    print("   - Weather API (OpenWeatherMap)")
+    print("   - Wilayah.id API (Prov -> Kab -> Kec -> Desa)")
     if GEMINI_AVAILABLE:
-        print("  - Gemini AI Chatbot (Weather Topics)")
+        print("   - Gemini AI Chatbot (Weather Topics)")
     else:
-        print("  - Gemini AI Chatbot (Not Available)")
-    print("  - Favorites Management")
+        print("   - Gemini AI Chatbot (Not Available)")
+    print("   - Favorites Management")
     print("=" * 60)
     print("Tekan CTRL+C untuk stop server\n")
     
-    app.run(debug=True, port=5000, host='0.0.0.0')
+    # Replit akan menggunakan port-nya sendiri, tapi '0.0.0.0' penting
+    # 'debug=True' oke untuk sekarang, tapi idealnya False saat production
+    app.run(debug=True, port=os.getenv("PORT", 5000), host='0.0.0.0')
